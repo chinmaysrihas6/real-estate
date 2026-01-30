@@ -1,0 +1,169 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* Apply your custom gradient as the default background */
+    background: linear-gradient(180deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+    background-attachment: fixed; /* Ensures the gradient stays put while scrolling */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+}
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+}
+
+.font-display { font-family: 'Playfair Display', serif; }
+.font-body { font-family: 'Source Sans Pro', sans-serif; }
+
+.gradient-gold {
+  /* Updated to match the rich gold in image_8149d4.jpg */
+  background: linear-gradient(135deg, #fef3c7 0%, #d4af37 45%, #92400e 100%);
+  -webkit-background-clip: border-box; /* Default for the line */
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fef3c7 0%, #d4af37 45%, #92400e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dashboard-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% -20%, rgba(212, 175, 55, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+
+/* Update your card-hover in index.css */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Reduced from 0.4s to 0.3s for speed */
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02); /* Lifts higher and grows slightly */
+  filter: brightness(1.2); /* Makes the emerald gradient pop */
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 
+              0 0 20px 2px rgba(16, 185, 129, 0.2); /* Adds a colored emerald glow */
+}
+
+.card-hover:active {
+  transform: translateY(-2px) scale(0.98); /* Snappy feedback on click */
+}
+
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(55, 65, 81, 0.5); /* border-gray-700/50 */
+}
+
+.card-hover:hover {
+  /* Image 1 Highlight Logic */
+  background-color: rgba(31, 41, 55, 0.7);
+  border-color: rgba(212, 175, 55, 0.3); /* Amber border glow */
+  transform: translateX(4px); /* Subtle slide right on hover */
+  box-shadow: -4px 0 15px -5px rgba(212, 175, 55, 0.4); /* Left-side amber glow */
+}
+
+/* What the browser sees */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem; /* The space between your cards */
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
